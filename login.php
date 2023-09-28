@@ -65,7 +65,7 @@
                          echo "<div class='alert alert-danger'>
                                    <p>Identifiant ou mot de passe incorrect</p>
                                </div>";
-                         echo "<a href=login.php' class='btn btn-primary'>Retour</a>";
+                         echo "<a href='login.php' class='btn btn-primary'>Retour</a>";
                      }
                  }
                 ?>
