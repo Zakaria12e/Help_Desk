@@ -102,11 +102,11 @@ if (isset($_POST['submit'])) {
         <form action="home.php" method="post">
             <div class="mb-3">
                 <label for="name" class="form-label">Nom</label>
-                <input type="text" class="form-control" name="name" id="name">
+                <input type="text" class="form-control" name="name" id="name"  autocomplete="off">
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">E-mail</label>
-                <input type="email" class="form-control" name="email" id="email">
+                <input type="email" class="form-control" name="email" id="email" autocomplete="off">
             </div>
             <div class="mb-3">
                 <label for="subject" class="form-label">Sujet</label>
