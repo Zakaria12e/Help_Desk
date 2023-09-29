@@ -45,12 +45,6 @@ if (isset($_POST['submit'])) {
     <title>Modifier le Profil</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        footer {
-            padding: 10px 0;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
         .bg-silver {
             background-color: rgb(240, 240, 240);
         }
@@ -124,10 +118,6 @@ if (isset($_POST['submit'])) {
             </div>
         </div>
     </div>
-    <footer class="bg-primary text-white text-center py-2">
-        &copy; 2023 Help Desk
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqFjcJ6pajs/rfdfs3SO+kCG5L4M5e18nC5MQn5f5F5v5F5" crossorigin="anonymous"></script>
 </body>
 </html>
