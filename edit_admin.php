@@ -77,7 +77,7 @@ if (isset($_POST['submit'])) {
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-silver">
         <div class="container">
-            <a class="navbar-brand desk" href="home.php"><h4>Help Desk</h4></a>
+            <a class="navbar-brand desk" href="desk.php"><h4>Help Desk</h4></a>
             <ul class="navbar-nav ml-auto">
                 <?php 
                     if (isset($_SESSION['valid'])) {
@@ -106,7 +106,7 @@ if (isset($_POST['submit'])) {
                 <?php endif; ?>
 
                 <h2 class="mb-4 text-center">Modification du Profil Admin</h2>
-                <form action="edit.php" method="post">
+                <form action="edit_admin.php" method="post">
                     <div class="form-group">
                         <label for="username">Nom d'utilisateur</label>
                         <input type="text" class="form-control" name="username" id="username" value="<?php echo $username; ?>" required>
