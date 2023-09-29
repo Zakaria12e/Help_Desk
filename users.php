@@ -4,7 +4,7 @@ require_once("config.php");
 
 // Vérifiez si l'utilisateur est connecté en tant qu'administrateur
 if (!isset($_SESSION['valid']) || $_SESSION['usertype'] !== 'admin') {
-    header("Location: index.php");
+    header("Location: login.php");
     exit;
 }
 
