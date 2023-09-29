@@ -3,7 +3,7 @@ session_start();
 include("config.php");
 
 if (!isset($_SESSION['valid'])) {
-    header("Location: index.php");
+    header("Location: login.php");
 }
 
 $id = $_SESSION['id'];
