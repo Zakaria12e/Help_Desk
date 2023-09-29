@@ -5,6 +5,7 @@ require_once("config.php");
 $id = "";
 $description = "";
 $name = "";
+$service ="";
 $subject = "";
 $email = "";
 $confirmationMessage = "";
@@ -13,14 +14,15 @@ if (isset($_POST['submit'])) {
     // Récupérer les données du formulaire soumis
     $name = mysqli_real_escape_string($con, $_POST['name']);
     $subject = mysqli_real_escape_string($con, $_POST['subject']);
+    $service = mysqli_real_escape_string($con, $_POST['service']);
     $description = mysqli_real_escape_string($con, $_POST['description']);
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $status = "En attente"; // Statut par défaut pour les nouveaux tickets
 
     // Insérer le nouveau ticket dans la base de données
-    $insertQuery = "INSERT INTO tickets (id, name, email, subject, description, status, created_at) VALUES (?, ?, ?, ?, ?, ?, NOW())";
+    $insertQuery = "INSERT INTO tickets (id, name, email , service, subject, description, status, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())";
     $stmt = mysqli_prepare($con, $insertQuery);
-    mysqli_stmt_bind_param($stmt, "isssss", $_SESSION['id'], $name, $email, $subject, $description, $status);
+    mysqli_stmt_bind_param($stmt, "issssss", $_SESSION['id'], $name, $email, $service, $subject, $description, $status);
 
     if (mysqli_stmt_execute($stmt)) {
         $confirmationMessage = "Le ticket a été soumis avec succès.";
@@ -107,6 +109,19 @@ if (isset($_POST['submit'])) {
             <div class="mb-3">
                 <label for="email" class="form-label">E-mail</label>
                 <input type="email" class="form-control" name="email" id="email" autocomplete="off">
+            </div>
+            <div class="mb-3">
+                <label for="service" class="form-label">Service</label>
+                <select class="form-select" name="service" id="service" required>
+                    <option value= "Division des Affaires Economiques et Sociales"<?php if ($service === "Division des Affaires Economiques et Sociales") echo "selected"; ?>>Division des Affaires Economiques et Sociales</option>
+                    <option value= "Division des Ressources Humaines" <?php if ($service === "Division des Ressources Humaines" ) echo "selected"; ?>>Division des Ressources Humaines</option>
+                    <option value= "Division des Affaires Rurales" <?php if ($service === "Division des Affaires Rurales" ) echo "selected"; ?>>Division des Affaires Rurales</option>
+                    <option value= "Division des Affaires Intérieures" <?php if ($service === "Division des Affaires Intérieures" ) echo "selected"; ?>>Division des Affaires Intérieures</option>
+                    <option value= "Division de l'Urbanisme et de l'Environnement" <?php if ($service === "Division de l'Urbanisme et de l'Environnement" ) echo "selected"; ?>>Division de l'Urbanisme et de l'Environnement</option>
+                    <option value= "Cellule RAMED" <?php if ($service === "Cellule RAMED" ) echo "selected"; ?>>Cellule RAMED</option>
+                    <option value= "Division des Collectivités Locales" <?php if ($service === "Division des Collectivités Locales" ) echo "selected"; ?>>Division des Collectivités Locales</option>
+                    <option value= "Division des Marchés et du Budget" <?php if ($service === "Division des Marchés et du Budget" ) echo "selected"; ?>>Division des Marchés et du Budget</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="subject" class="form-label">Sujet</label>
