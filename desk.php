@@ -133,6 +133,7 @@ $query = mysqli_query($con, "SELECT * FROM tickets");
                     <th>ID</th>
                     <th class="text-center">Nom</th>
                     <th class="text-center">Email</th>
+                    <th class="text-center">Service</th>
                     <th class="text-center">Sujet</th>
                     <th class="text-center">Description</th>
                     <th class="text-center">Date de création</th>
@@ -169,6 +170,7 @@ $query = mysqli_query($con, "SELECT * FROM tickets");
                         echo "<td>" . $row['ticket_id'] . "</td>";
                         echo "<td class='text-center hor'>" . $row['name'] . "</td>";
                         echo "<td class='text-center hor'>" . $row['email'] . "</td>";
+                        echo "<td class='text-center hor service'>" . $row['service'] . "</td>";
                         echo "<td class='text-center hor subject'>" . $row['subject'] . "</td>";
                         echo '<td class="text-center hor description">';
                         foreach ($descriptionChunks as $chunk) {
