@@ -87,13 +87,6 @@ $query = mysqli_query($con, "SELECT * FROM users");
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-
-        }
-    footer {
-            padding: 10px 0;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
         }
     </style>
     <title>Gestion des Utilisateurs - Help Desk</title>
@@ -117,7 +110,6 @@ $query = mysqli_query($con, "SELECT * FROM users");
     <header>
         <h1 class="text-center">Gestion des Utilisateurs</h1>
     </header>
-
     <div class="row justify-content-center">
         <div class="col-md-8">
             <?php if (isset($errorMessage)) : ?>
@@ -169,8 +161,5 @@ $query = mysqli_query($con, "SELECT * FROM users");
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<footer class="bg-primary text-white text-center py-2">
-        &copy; 2023 Help Desk
-    </footer>
 </body>
 </html>
