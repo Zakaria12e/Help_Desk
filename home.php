@@ -41,12 +41,6 @@ if (isset($_POST['submit'])) {
     <title>Contact Support</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
-        footer {
-            padding: 10px 0;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
         .bg-silver {
     background-color: rgb(240, 240, 240);
 }
@@ -137,11 +131,7 @@ if (isset($_POST['submit'])) {
             <button type="submit" class="btn btn-primary" name="submit">Soumettre</button>
         </form>
     </div>
-
     <!-- Inclure les fichiers JavaScript Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
-<footer class="bg-primary text-white text-center py-2">
-        &copy; 2023 Help Desk
-    </footer>
 </html>
