@@ -133,6 +133,7 @@ if ($query) {
                     <th>ID</th>
                     <th>Nom</th>
                     <th>Email</th>
+                    <th style="width: 200px;">Service</th>
                     <th style="width: 200px;">Sujet</th>
                     <th class="description-column" style="width: 900px;">Description</th>
                     <th style="width: 200px;">Status</th>
@@ -146,6 +147,7 @@ if ($query) {
                         <td class="text-center hor"><?php echo $ticket['ticket_id']; ?></td>
                         <td class="text-center hor"><?php echo $ticket['name']; ?></td>
                         <td class="text-center hor"><?php echo $ticket['email']; ?></td>
+                        <td class="text-center hor"><?php echo $ticket['service']; ?></td>
                         <td class="text-center hor"><?php echo $ticket['subject']; ?></td>
                         <td>
                             <?php
