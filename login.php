@@ -27,48 +27,46 @@
         <div class="card mx-auto p-4 custom-form">
             <div class="card-body">
             <h5 class="card-title text-left mb-4">Help Desk</h5>
-                <?php 
-                 session_start();
-                 include("config.php");
-                 if(isset($_POST['submit'])){
-                     $email = mysqli_real_escape_string($con,$_POST['email']);
-                     $password = mysqli_real_escape_string($con,$_POST['password']);
-                     $usertype = $_POST['usertype'];
-         
-                     // Si l'utilisateur est un administrateur, vérifiez le code de vérification
-                     if ($usertype === 'admin') {
-                         $verification_code = mysqli_real_escape_string($con,$_POST['verification']);
-                         if ($verification_code !== '4011') {
-                             echo "<div class='alert alert-danger'>
-                                       <p>Code de vérification incorrect</p>
-                                   </div>";
-                             echo "<a href='login.php' class='btn btn-primary'>Réessayer</a>";
-                             exit; // Arrêtez l'exécution si le code de vérification est incorrect
-                         }
-                     }
-         
-                     // Vérifiez si les informations d'identification de l'utilisateur sont correctes
-                     $result = mysqli_query($con,"SELECT * FROM users WHERE Email='$email' AND Password='$password' ") or die("Select Error");
-                     $row = mysqli_fetch_assoc($result);
-         
-                     if(is_array($row) && !empty($row)){
-                         $_SESSION['valid'] = $row['Email'];
-                         $_SESSION['username'] = $row['Username'];
-                         $_SESSION['id'] = $row['Id'];
-                         $_SESSION['usertype'] = $usertype;
-                         if ($_SESSION['usertype'] === 'admin') {
-                             header("Location: desk.php");
-                         } else {
-                             header("Location: home.php");
-                         }
-                     } else {
-                         echo "<div class='alert alert-danger'>
-                                   <p>Identifiant ou mot de passe incorrect</p>
-                               </div>";
-                         echo "<a href='login.php' class='btn btn-primary'>Retour</a>";
-                     }
-                 }
-                ?>
+                <?php
+session_start();
+include("config.php");
+
+if(isset($_POST['submit'])){
+    $email = mysqli_real_escape_string($con, $_POST['email']);
+    $password = mysqli_real_escape_string($con, $_POST['password']);
+    $usertype = $_POST['usertype'];
+
+    $result = mysqli_query($con, "SELECT * FROM users WHERE Email='$email'") or die(mysqli_error($con));
+    $row = mysqli_fetch_assoc($result);
+
+    if ($row) {
+        $hashpass = $row['Password'];
+
+        if (password_verify($password, $hashpass)) {
+            $_SESSION['valid'] = $row['Email'];
+            $_SESSION['username'] = $row['Username'];
+            $_SESSION['id'] = $row['Id'];
+            $_SESSION['usertype'] = $usertype;
+
+            if ($_SESSION['usertype'] === 'admin') {
+                header("Location: desk.php");
+            } else {
+                header("Location: home.php");
+            }
+        } else {
+            echo "<div class='alert alert-danger'>
+                    <p>Identifiant ou mot de passe incorrect</p>
+                  </div>";
+            echo "<a href='login.php' class='btn btn-primary'>Retour</a>";
+        }
+    } else {
+        echo "<div class='alert alert-danger'>
+                <p>Identifiant ou mot de passe incorrect</p>
+              </div>";
+        echo "<a href='login.php' class='btn btn-primary'>Retour</a>";
+    }
+}
+?>
                <h1 class="card-title text-center mb-4 gradient-title">CONNEXION</h1>
                 <form action="" method="post">
                     <div class="mb-3">
