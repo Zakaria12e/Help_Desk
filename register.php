@@ -30,7 +30,7 @@
                   if(isset($_POST['submit'])){
                       $username = $_POST['username'];
                       $email = $_POST['email'];
-                      $password = $_POST['password'];
+                      $password = password_hash($_POST['password'],PASSWORD_DEFAULT) ;
           
                       // Vérification de l'adresse e-mail unique
                       $verify_query = mysqli_query($con,"SELECT Email FROM users WHERE Email='$email'");
