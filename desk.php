@@ -1,6 +1,10 @@
 <?php
 session_start();
 require_once("config.php");
+if(!isset($_SESSION['username'])){
+   header('location:login.php');
+}
+else{
 
 if (!isset($_SESSION['valid']) || $_SESSION['usertype'] !== 'admin') {
     header("Location: login.php");
@@ -206,3 +210,6 @@ $query = mysqli_query($con, "SELECT * FROM tickets");
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
+    <?php
+ }
+?>
